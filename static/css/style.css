@@ -21,3 +21,11 @@
 .uppercase {
     text-transform: uppercase;
 }
+
+/* Buttons */
+
+.btn-custom {
+    background-color: #81c784;
+    color: white;
+    font-family: 'Righteous', cursive;
+}
