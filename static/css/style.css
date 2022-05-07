@@ -1,0 +1,23 @@
+/* Navbar */
+
+.nav-custom {
+    background-color: white;
+    color: #81c784;
+    font-family: 'Righteous', cursive;
+}
+
+.nav-custom a {
+    color: #81c784;
+}
+
+.nav-custom a i {
+    color: #81c784;
+}
+
+.nav-custom li {
+    color: #81c784;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
