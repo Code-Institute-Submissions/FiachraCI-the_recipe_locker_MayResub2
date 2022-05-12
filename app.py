@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -18,7 +18,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 @app.route("/")
 @app.route("/get_instructions")
 def get_instructions():
@@ -26,9 +25,28 @@ def get_instructions():
     return render_template("instructions.html", instructions=instructions)
 
 
-@app.route("/sign_up", methods=["GET", "POST"])
+@app.route("/signup", methods=["GET", "POST"])
 def sign_up():
+    if request.method == "POST":
+        # check if username exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username taken!")
+            return redirect(url_for("sign_up"))
+
+        signup = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(signup)
+
+        # Create user session cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Sign Up Successful!")
     return render_template("signup.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
