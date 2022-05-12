@@ -26,7 +26,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="large material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down uppercase">
                     <li><a href="{{ url_for('get_instructions') }}">Home</a></li>
-                    <li><a href="#">Account</a></li>
+                    <li><a href="{{ url_for('account', username=session['user']) }}">Account</a></li>
                     <li><a href="#">New Recipe</a></li>
                     <li><a href="#">Manage Cuisines</a></li>
                     <li><a href="#">Sign Out</a></li>
@@ -42,7 +42,7 @@
                 <h4 class="center-align">The Recipe Locker</h4>
             </li>
             <li><a href="{{ url_for('get_instructions') }}">Home</a></li>
-            <li><a href="#">Account</a></li>
+            <li><a href="{{ url_for('account', username=session['user']) }}">Account</a></li>
             <li><a href="#">New Recipe</a></li>
             <li><a href="#">Manage Cuisines</a></li>
             <li><a href="#">Sign Out</a></li>
