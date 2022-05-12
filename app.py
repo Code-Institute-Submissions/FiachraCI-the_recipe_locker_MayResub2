@@ -84,7 +84,18 @@ def account(username):
     # fetches the session user's username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("account.html", username=username)
+
+    if session["user"]:
+        return render_template("account.html", username=username)
+
+    return redirect(url_for("signin"))
+
+
+@app.route("/signout")
+def sign_out():
+    flash("You have been signed out successfully")
+    session.pop("user")
+    return redirect(url_for("sign_in"))
 
 
 if __name__ == "__main__":
