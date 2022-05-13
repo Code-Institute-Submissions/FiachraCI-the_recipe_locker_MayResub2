@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Edit Recipe</h3>
+
+<div class="row card-panel white">
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+        <!-- Cuisine Type -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">ramen_dining</i>
+                <select class="nav-custom validate" name="cuisine_name" id="cuisine_name" required>
+                    <option value="" disabled selected>Choose cuisine type</option>
+                    {% for item in cuisines %}
+                    <option value="{{ item.cuisine_name }}">{{ item.cuisine_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <!-- Recipe Name -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">menu_book</i>
+                <textarea id="recipe_name" name="recipe_name" minlength="3" maxlength="60" placeholder=""
+                    class="materialize-textarea validate" required></textarea>
+                <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
+        <!-- Ingredients -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">checklist_rtl</i>
+                <textarea id="ingredients" name="ingredients" minlength="3" placeholder=""
+                    class="materialize-textarea validate" required></textarea>
+                <label for="ingredients">Ingredients</label>
+            </div>
+        </div>
+        <!-- Steps -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">format_list_numbered</i>
+                <textarea id="steps" name="steps" minlength="3" placeholder="" class="materialize-textarea validate"
+                    required></textarea>
+                <label for="steps">Steps</label>
+            </div>
+        </div>
+        <!-- Prep Time -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">hourglass_top</i>
+                <textarea id="prep_time" name="prep_time" minlength="1" maxlength="3"
+                    class="materialize-textarea validate" pattern="^[0-9]{1,3}$" placeholder="(In minutes)"
+                    required></textarea>
+                <label for="prep_time">Prep Time</label>
+            </div>
+        </div>
+        <!-- Cook Time -->
+        <div class="row">
+            <div class="input-field col s12 nav-custom">
+                <i class="material-icons prefix">hourglass_bottom</i>
+                <textarea id="cook_time" name="cook_time" minlength="1" maxlength="3"
+                    class="materialize-textarea validate" pattern="^[0-9]{1,3}$" placeholder="(In minutes)"
+                    required></textarea>
+                <label for="cook_time">Cook Time</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large">
+                    Update Recipe
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

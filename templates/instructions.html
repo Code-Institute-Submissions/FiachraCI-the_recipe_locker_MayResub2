@@ -15,7 +15,7 @@
                 Prep Time: {{ item.prep_time }} mins - Cook Time:
                 {{ item.cook_time }} mins
                 <i class="large material-icons">access_time</i>
-                <a href="" class="btn-small orange">Update</a>
+                <a href="{{ url_for('edit_recipe', recipe_id=item._id) }}" class="btn-small orange">Update</a>
                 <a href="" class="btn-small red">Submit</a>
             </div>
         </div>
