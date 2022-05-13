@@ -29,3 +29,27 @@
     color: white;
     font-family: 'Righteous', cursive;
 }
+
+/* Icons */
+
+i {
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
+    margin: 0em !important;
+}
+
+
+/* Text fields */
+
+.text-gray {
+    color: #9e9e9e;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #81c784;
+    font-family: 'Righteous', cursive;
+}
