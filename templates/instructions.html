@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+
+    <h3 class="center-align">All recipes</h3>
+
     <ul class="collapsible">
         {% for item in instructions %}
             <li>
@@ -28,6 +31,7 @@
                         </li>
                         {% endfor %}
                     </ol>
+                    <p><em>Created by: {{ item.created_by }}</em></p>
                 </div>
             </li>
         {% endfor %}
