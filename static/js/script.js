@@ -1,7 +1,9 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav({edge: "right"});
-    $(document).ready(function(){
+$(document).ready(function () {
+  $('.sidenav').sidenav({
+    edge: "right"
+  });
+  $(document).ready(function () {
     $('.collapsible').collapsible();
     $('select').formSelect();
   });
-  });
+});

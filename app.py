@@ -61,11 +61,11 @@ def sign_in():
             # Checks to see if hashed password matches the user input field
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "account", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "account", username=session["user"]))
             else:
                 # Executes if password does not match
                 flash("Incorrect Username and/or Password")
@@ -104,8 +104,8 @@ def add_recipe():
         recipe = {
             "cuisine_name": request.form.get("cuisine_name"),
             "recipe_name": request.form.get("recipe_name"),
-            "ingredients": request.form.get("ingredients"),
-            "steps": request.form.get("steps"),
+            "ingredients": request.form.get("ingredients").splitlines(),
+            "steps": request.form.get("steps").splitlines(),
             "prep_time": request.form.get("prep_time"),
             "cook_time": request.form.get("cook_time"),
             "created_by": session["user"]

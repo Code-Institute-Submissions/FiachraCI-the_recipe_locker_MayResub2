@@ -1,39 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">All recipes</h3>
+<h3 class="center-align">All recipes</h3>
 
-    <ul class="collapsible">
-        {% for item in instructions %}
-            <li>
-                <div class="collapsible-header btn-custom">
-                    <i class="material-icons">arrow_drop_down</i>
-                    {{ item.cuisine_name }}: {{ item.recipe_name }} |
-                    Prep Time: {{ item.prep_time }} - Cook Time:
-                    {{ item.cook_time }}
-                    <i class="large material-icons">access_time</i>
-                </div>
-                <div class="collapsible-body">
-                    <h3>{{ item.recipe_name }}</h3>
-                    <h4>Ingredients:</h4>
-                    <ul>
-                        {% for elem in item.ingredients %}
-                        <li>
-                            {{elem}}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    <h4>Steps:</h4>
-                    <ol>
-                        {% for elem in item.steps %}
-                        <li>
-                            {{elem}}
-                        </li>
-                        {% endfor %}
-                    </ol>
-                    <p><em>Created by: {{ item.created_by }}</em></p>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
+<ul class="collapsible">
+    {% for item in instructions %}
+    <li>
+        <div class="collapsible-header btn-custom">
+            <div class="col s3 valign-wrapper">
+                <i class="material-icons orange-text">arrow_drop_down</i>
+            </div>
+            <div class="col s9 valign-wrapper">
+                {{ item.cuisine_name }}: {{ item.recipe_name }} |
+                Prep Time: {{ item.prep_time }} mins - Cook Time:
+                {{ item.cook_time }} mins
+                <i class="large material-icons">access_time</i>
+                <a href="" class="btn-small orange">Update</a>
+                <a href="" class="btn-small red">Submit</a>
+            </div>
+        </div>
+        <div class="collapsible-body">
+            <h3>{{ item.recipe_name }}</h3>
+            <h4>Ingredients:</h4>
+            <ul>
+                {% for elem in item.ingredients %}
+                <li>
+                    {{elem}}
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Steps:</h4>
+            <ol>
+                {% for elem in item.steps %}
+                <li>
+                    {{elem}}
+                </li>
+                {% endfor %}
+            </ol>
+            <p><em>Created by: {{ item.created_by }}</em></p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
