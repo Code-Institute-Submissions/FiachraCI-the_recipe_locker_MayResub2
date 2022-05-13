@@ -9,7 +9,7 @@
         type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Birthstone&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
@@ -42,7 +42,7 @@
         <!-- Mobile Navbar -->
         <ul class="sidenav nav-custom center-align uppercase" id="mobile-demo">
             <li>
-                <h4 class="center-align">The Recipe Locker</h4>
+                <i class="medium material-icons prefix">ramen_dining</i>
             </li>
             <li><a href="{{ url_for('get_instructions') }}">Home</a></li>
             {% if session.user %}
