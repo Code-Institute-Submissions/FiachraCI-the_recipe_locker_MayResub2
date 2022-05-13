@@ -1,5 +1,9 @@
 /* Navbar */
 
+.logo {
+    margin-left: 2rem;
+}
+
 .nav-custom {
     background-color: white;
     color: #81c784;
@@ -33,10 +37,8 @@
 /* Icons */
 
 i {
-    width: 2rem;
-    display: inline-block;
-    text-align: center;
-    margin: 0em !important;
+    /* Overrides Materialize margin */
+    margin: 0em !important; 
 }
 
 
