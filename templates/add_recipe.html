@@ -8,9 +8,12 @@
             <div class="row">
                 <div class="input-field col s12 nav-custom">
                     <i class="material-icons prefix">ramen_dining</i>
-                    <input id="cuisine_name" name="cuisine_name" type="text" minlength="3" maxlength="60"
-                        class="validate" required>
-                    <label for="cuisine_name">Cuisine</label>
+                    <select class="nav-custom validate" name="cuisine_name" id="cuisine_name" required>
+                        <option value="" disabled selected>Choose cuisine type</option>
+                        {% for item in cuisines %}
+                            <option value="{{ item.cuisine_name }}">{{ item.cuisine_name }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="row">

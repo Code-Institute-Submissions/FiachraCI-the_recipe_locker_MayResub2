@@ -22,8 +22,6 @@ mongo = PyMongo(app)
 @app.route("/get_instructions")
 def get_instructions():
     instructions = list(mongo.db.instructions.find())
-    # ingredients = list(mongo.db.instructions.ingredients.find())
-    # steps = list(mongo.db.instructions.steps.find())
     return render_template("instructions.html", instructions=instructions)
 
 
@@ -102,7 +100,8 @@ def sign_out():
 
 @app.route("/add_recipe")
 def add_recipe():
-    return render_template("add_recipe.html")
+    cuisines = mongo.db.cuisine.find().sort("cuisine_name", 1)
+    return render_template("add_recipe.html", cuisines=cuisines)
 
 
 if __name__ == "__main__":
